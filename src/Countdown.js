@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState, useEffect } from 'react';
 import { PropTypes } from 'prop-types';
@@ -82,9 +83,10 @@ Countdown.propTypes = {
   targetDate: PropTypes.instanceOf(Date),
   targetCaption: PropTypes.string,
 };
+
 Countdown.defaultProps = {
-  targetCaption: 'Until June 1, 2030, 9 p.m.',
-  targetDate: new Date(2030, 5, 1, 21, 0, 0, 0),
+  targetCaption: 'Specify a caption...',
+  targetDate: new Date(2099, 11, 31, 23, 59, 59, 0),
 };
 
 export default Countdown;

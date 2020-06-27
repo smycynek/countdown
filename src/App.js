@@ -2,32 +2,35 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import Countdown from './Countdown';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <Countdown
-            targetCaption="until 'No Time to Die' is released in theaters/streaming."
-            targetDate={new Date(2020, 10, 20, 6, 0, 0, 0)}
-          />
+const App = () => {
+  const divStyle = {
+    backgroundColor: 'lightblue',
+  };
+  return (
+    <div className="container" style={divStyle}>
+      <h1>Countdown</h1>
+      <header>
+        <Countdown
+          targetCaption="until 'No Time to Die' is released in theaters/streaming."
+          targetDate={new Date(2020, 10, 20, 6, 0, 0, 0)}
+        />
 
-          <div className="partition" />
+        <div className="partition" />
 
-          <Countdown
-            targetCaption="until KFMDM comes to Boston!"
-            targetDate={new Date(2021, 3, 14, 20, 0, 0, 0)}
-          />
+        <Countdown
+          targetCaption="until KFMDM comes to Boston!"
+          targetDate={new Date(2021, 3, 14, 20, 0, 0, 0)}
+        />
 
-          <div className="partition" />
+        <div className="partition" />
 
-          <Countdown />
-        </header>
-      </div>
-    );
-  }
-}
+        <Countdown />
+      </header>
+    </div>
+  );
+};
 
 export default App;

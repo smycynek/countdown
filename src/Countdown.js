@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState, useEffect } from 'react';
@@ -7,9 +8,8 @@ import './App.css';
 /*
   Simple component to animate a countdown in
   hours, minutes, seconds from a given date
-  */
+*/
 const Countdown = ({ targetDate, targetCaption }) => {
-
   const getTimeSpan = (date) => date.getTime() - new Date().getTime();
 
   const getSpanComponents = (span) => {
@@ -72,9 +72,9 @@ const Countdown = ({ targetDate, targetCaption }) => {
   }, []);
 
   return (
-    <div>
-      <h1>{spanFormatted}</h1>
-      <h2>{targetCaption}</h2>
+    <div className="countdown">
+      <h2 className="text-dark text-left p-2 m-1">{spanFormatted}</h2>
+      <h3 className="text-dark text-left p-2 m-2">{targetCaption}</h3>
     </div>
   );
 };

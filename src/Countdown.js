@@ -12,7 +12,7 @@ import './App.css';
 const Countdown = ({ targetDate, targetCaption }) => {
   const getTimeSpan = (date) => date.getTime() - new Date().getTime();
 
-  const getSpanComponents = (span) => {
+  const createSpanComponents = (span) => {
     const days = span / (1000 * 60 * 60 * 24);
     const daysWhole = Math.floor(days);
     const remainderHours = days - daysWhole;
@@ -32,36 +32,14 @@ const Countdown = ({ targetDate, targetCaption }) => {
     };
   };
 
-  const createSpanFormatted = (date) => {
-    const span = getTimeSpan(date);
-    const spanComponents = getSpanComponents(span);
-    let dayLabel = 'days';
-    if (spanComponents.days === 1) {
-      dayLabel = 'day';
-    }
-    let hourLabel = 'hours';
-    if (spanComponents.hours === 1) {
-      hourLabel = 'hour';
-    }
-    let minuteLabel = 'minutes';
-    if (spanComponents.minutes === 1) {
-      minuteLabel = 'minute';
-    }
-    let secondLabel = 'seconds';
-    if (spanComponents.seconds === 1) {
-      secondLabel = 'second';
-    }
-    return `${spanComponents.days} ${dayLabel}, 
-      ${spanComponents.hours} ${hourLabel}, ${spanComponents.minutes} 
-      ${minuteLabel}, ${spanComponents.seconds} ${secondLabel}`;
-  };
+  const createDateSpanComponents = (date) => createSpanComponents(getTimeSpan(date));
 
-  const [spanFormatted, setSpanFormatted] = useState(
-    createSpanFormatted(targetDate),
+  const [spanComponents, setSpanComponents] = useState(
+    createDateSpanComponents(targetDate),
   );
 
   const tick = () => {
-    setSpanFormatted(createSpanFormatted(targetDate));
+    setSpanComponents(createDateSpanComponents(targetDate));
   };
 
   useEffect(() => {
@@ -72,9 +50,45 @@ const Countdown = ({ targetDate, targetCaption }) => {
   }, []);
 
   return (
-    <div className="countdown">
-      <h2 className="text-dark text-left p-2 m-1">{spanFormatted}</h2>
-      <h3 className="text-dark text-left p-2 m-2">{targetCaption}</h3>
+    <div className="container-fluid border border-secondary">
+      <div className="row">
+        <div className="col-sm">
+          <span className="text-dark">{spanComponents.days}</span>
+        </div>
+        <div className="col-sm">
+          <span className="text-secondary">{spanComponents.days === 1 ? ' Day' : ' Days'}</span>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-sm">
+          <span className="text-dark">{spanComponents.hours}</span>
+        </div>
+        <div className="col-sm">
+          <span className="text-secondary">{spanComponents.hours === 1 ? ' Hour' : ' Hours'}</span>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-sm">
+          <span className="text-dark">{spanComponents.minutes}</span>
+        </div>
+        <div className="col-sm">
+          <span className="text-secondary">{spanComponents.minutes === 1 ? ' Minute' : ' Minutes'}</span>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-sm">
+          <span className="text-dark">{spanComponents.seconds}</span>
+        </div>
+        <div className="col-sm">
+          <span className="text-secondary">{spanComponents.seconds === 1 ? ' Second' : ' Seconds'}</span>
+        </div>
+      </div>
+      <span className="text-info">
+        <em>{targetCaption}</em>
+      </span>
     </div>
   );
 };

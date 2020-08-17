@@ -6,13 +6,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 const App = () => {
-  const divStyle = {
-    backgroundColor: 'lightgrey',
-  };
-  const targetDate = new Date(2020, 10, 20, 6, 0, 0, 0);
-  const targetCaption = "until 'No Time to Die' is released in theaters/streaming.";
+  const targetDate = new Date(2020, 9, 2, 10, 0, 0, 0);
+  const targetCaption = 'until the Sonos Arc is in stock!';
   return (
-    <div className="container" style={divStyle}>
+    <div className="container">
       <h1 className="text-info">Countdown Fun</h1>
       <header>
         <Countdown

@@ -50,39 +50,39 @@ const Countdown = ({ targetDate, targetCaption }) => {
   }, []);
 
   return (
-    <div className="container-fluid border border-secondary">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-sm">
+        <div className="col-sm-1">
           <span className="text-dark">{spanComponents.days}</span>
         </div>
-        <div className="col-sm">
+        <div className="col-sm-1">
           <span className="text-secondary">{spanComponents.days === 1 ? ' Day' : ' Days'}</span>
         </div>
       </div>
 
       <div className="row">
-        <div className="col-sm">
+        <div className="col-sm-1">
           <span className="text-dark">{spanComponents.hours}</span>
         </div>
-        <div className="col-sm">
+        <div className="col-sm-1">
           <span className="text-secondary">{spanComponents.hours === 1 ? ' Hour' : ' Hours'}</span>
         </div>
       </div>
 
       <div className="row">
-        <div className="col-sm">
+        <div className="col-sm-1">
           <span className="text-dark">{spanComponents.minutes}</span>
         </div>
-        <div className="col-sm">
+        <div className="col-sm-1">
           <span className="text-secondary">{spanComponents.minutes === 1 ? ' Minute' : ' Minutes'}</span>
         </div>
       </div>
 
       <div className="row">
-        <div className="col-sm">
+        <div className="col-sm-1">
           <span className="text-dark">{spanComponents.seconds}</span>
         </div>
-        <div className="col-sm">
+        <div className="col-sm-1">
           <span className="text-secondary">{spanComponents.seconds === 1 ? ' Second' : ' Seconds'}</span>
         </div>
       </div>
